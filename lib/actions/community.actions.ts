@@ -181,7 +181,7 @@ export async function addMemberToCommunity(
     }
 
     // Check if the user is already a member of the community
-    if (community.members.includes(user._id)) {
+    if (community.members.includes(user._id.toString())) {
       throw new Error("User is already a member of the community");
     }
 

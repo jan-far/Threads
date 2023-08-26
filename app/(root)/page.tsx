@@ -1,6 +1,6 @@
 import ThreadCard from "@/components/cards/ThreadCard";
 import { getThreads } from "@/lib/actions/thread.actions";
-import { UserButton, currentUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs";
 
 const Home = async () => {
   const results = await getThreads(1, 30);
@@ -24,7 +24,7 @@ const Home = async () => {
                 author={post.author}
                 community={post.community}
                 comments={post.children}
-                createdAt={post.createdAt}
+                createdAt={post.createdAt as unknown as string}
               />
             ))}
           </>

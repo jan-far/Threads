@@ -1,12 +1,14 @@
 import mongoose, { Model } from "mongoose";
+import Community from "./community.model";
 
+type BaseEntity = { id: string; name: string; image: string };
 export interface ThreadDocument {
   text: string;
-  author: mongoose.Types.ObjectId | Record<string, unknown>;
-  community: mongoose.Types.ObjectId | Record<string, unknown>;
+  author: BaseEntity & Record<string, any>;
+  community: BaseEntity & Record<string, any>;
   parentId: string;
-  children: Array<mongoose.Types.ObjectId> | Array<Record<string, any>>;
-  createdAt: Date | string;
+  children: Array<{ author: { image: string } }>;
+  createdAt: Date;
 }
 
 interface ThreadModel extends Model<ThreadDocument> {}

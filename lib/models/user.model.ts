@@ -1,5 +1,4 @@
 import mongoose, { Model } from "mongoose";
-import Community from "./community.model";
 import Thread from "./thread.model";
 
 interface UserDocument {
@@ -10,7 +9,7 @@ interface UserDocument {
   bio: string;
   threads: Array<typeof Thread>;
   onboarded: boolean;
-  communities: Array<typeof Community>;
+  communities: any;
 }
 
 interface UserModel extends Model<UserDocument> {}

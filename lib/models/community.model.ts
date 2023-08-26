@@ -9,8 +9,8 @@ interface CommunityDocument {
   image: string;
   bio: string;
   createdBy: typeof User;
-  threads: Array<typeof Thread> | Array<Record<string, unknown>>;
-  members: Array<typeof User> | Array<Record<string, unknown>>;
+  threads: Array<any>;
+  members: Array<any>;
 }
 
 interface CommunityModel extends Model<CommunityDocument> {}
